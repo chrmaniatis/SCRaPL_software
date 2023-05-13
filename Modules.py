@@ -68,8 +68,8 @@ class SCRaPL_class():
                             infl_lay_1 = tf.math.multiply(self.sigm.forward(infl_lay_1_lt),tf.ones([self.n_genes,self.n_cells]))
                             
                             x_1 = yield tfd.Independent(tfd.Normal(loc = m_1, scale = s_1,name="x_1"),reinterpreted_batch_ndims=2)
-                            m_cnd_2 = m_2_lt+tf.math.multiply(tf.math.divide(tf.math.multiply(s_1,x_1-m_1),s_2),cor)
-                            s_cnd_2 = tf.math.sqrt(tf.math.multiply(1-tf.math.square(cor),tf.math.square(s_1)))
+                            m_cnd_2 = m_2_lt+tf.math.multiply(tf.math.divide(tf.math.multiply(s_2,x_1-m_1),s_1),cor)
+                            s_cnd_2 = tf.math.sqrt(tf.math.multiply(1-tf.math.square(cor),tf.math.square(s_2)))
                             x_2 = yield tfd.Independent(tfd.Normal(loc = m_cnd_2, scale = s_cnd_2,name="x_2"),reinterpreted_batch_ndims=2)
                             
                             y_1 = yield tfd.Independent(ZINF_dist(self.err_mdl1(self.err_mdl_1_sinf,x_1),infl_lay_1),reinterpreted_batch_ndims=2)
@@ -81,8 +81,8 @@ class SCRaPL_class():
                             infl_lay_2 = tf.math.multiply(self.sigm.forward(infl_lay_2_lt),tf.ones([self.n_genes,self.n_cells]))
                             
                             x_1 = yield tfd.Independent(tfd.Normal(loc = m_1, scale = s_1,name="x_1"),reinterpreted_batch_ndims=2)
-                            m_cnd_2 = m_2_lt+tf.math.multiply(tf.math.divide(tf.math.multiply(s_1,x_1-m_1),s_2),cor)
-                            s_cnd_2 = tf.math.sqrt(tf.math.multiply(1-tf.math.square(cor),tf.math.square(s_1)))
+                            m_cnd_2 = m_2_lt+tf.math.multiply(tf.math.divide(tf.math.multiply(s_2,x_1-m_1),s_1),cor)
+                            s_cnd_2 = tf.math.sqrt(tf.math.multiply(1-tf.math.square(cor),tf.math.square(s_2)))
                             x_2 = yield tfd.Independent(tfd.Normal(loc = m_cnd_2, scale = s_cnd_2,name="x_2"),reinterpreted_batch_ndims=2)
                             
                             y_1 = yield tfd.Independent(self.err_mdl1(self.err_mdl_1_sinf,x_1),reinterpreted_batch_ndims=2)
@@ -97,8 +97,8 @@ class SCRaPL_class():
                             infl_lay_2 = tf.math.multiply(self.sigm.forward(infl_lay_2_lt),tf.ones([self.n_genes,self.n_cells]))
                             
                             x_1 = yield tfd.Independent(tfd.Normal(loc = m_1, scale = s_1,name="x_1"),reinterpreted_batch_ndims=2)
-                            m_cnd_2 = m_2_lt+tf.math.multiply(tf.math.divide(tf.math.multiply(s_1,x_1-m_1),s_2),cor)
-                            s_cnd_2 = tf.math.sqrt(tf.math.multiply(1-tf.math.square(cor),tf.math.square(s_1)))
+                            m_cnd_2 = m_2_lt+tf.math.multiply(tf.math.divide(tf.math.multiply(s_2,x_1-m_1),s_1),cor)
+                            s_cnd_2 = tf.math.sqrt(tf.math.multiply(1-tf.math.square(cor),tf.math.square(s_2)))
                             x_2 = yield tfd.Independent(tfd.Normal(loc = m_cnd_2, scale = s_cnd_2,name="x_2"),reinterpreted_batch_ndims=2)
                             
                             y_1 = yield tfd.Independent(ZINF_dist(self.err_mdl1(self.err_mdl_1_sinf,x_1),infl_lay_1),reinterpreted_batch_ndims=2)
@@ -107,8 +107,8 @@ class SCRaPL_class():
                 elif self.infl == "none":
                 
                             x_1 = yield tfd.Independent(tfd.Normal(loc = m_1, scale = s_1,name="x_1"),reinterpreted_batch_ndims=2)
-                            m_cnd_2 = m_2_lt+tf.math.multiply(tf.math.divide(tf.math.multiply(s_1,x_1-m_1),s_2),cor)
-                            s_cnd_2 = tf.math.sqrt(tf.math.multiply(1-tf.math.square(cor),tf.math.square(s_1)))
+                            m_cnd_2 = m_2_lt+tf.math.multiply(tf.math.divide(tf.math.multiply(s_2,x_1-m_1),s_1),cor)
+                            s_cnd_2 = tf.math.sqrt(tf.math.multiply(1-tf.math.square(cor),tf.math.square(s_2)))
                             x_2 = yield tfd.Independent(tfd.Normal(loc = m_cnd_2, scale = s_cnd_2,name="x_2"),reinterpreted_batch_ndims=2)
                             
                             y_1 = yield tfd.Independent(self.err_mdl1(self.err_mdl_1_sinf,x_1),reinterpreted_batch_ndims=2)
